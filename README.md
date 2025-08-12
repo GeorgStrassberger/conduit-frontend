@@ -7,13 +7,25 @@
 
 <a href="https://stackblitz.com/edit/angular-realworld" target="_blank"><img width="187" src="https://github.com/gothinkster/realworld/blob/master/media/edit_on_blitz.png?raw=true" /></a>&nbsp;&nbsp;<a href="https://thinkster.io/tutorials/building-real-world-angular-2-apps" target="_blank"><img width="384" src="https://raw.githubusercontent.com/gothinkster/realworld/master/media/learn-btn-hr.png" /></a>
 
+---
+
+## Table of Contents
+
+- [How it works](#how-it-works)
+- [Getting started](#getting-started)
+- [Quick Start Docker](#quick-start-docker)
+- [Quick Start Docker Compose](#quick-start-docker-compose)
+- [Usage](#usage)
+
+---
+
 ### [Demo](https://angular.realworld.io)&nbsp;&nbsp;&nbsp;&nbsp;[RealWorld](https://github.com/gothinkster/realworld)
 
 This codebase was created to demonstrate a fully fledged application built with Angular that interacts with an actual backend server including CRUD operations, authentication, routing, pagination, and more. We've gone to great lengths to adhere to the [Angular Styleguide](https://angular.io/styleguide) & best practices.
 
 Additionally, there is an Angular 1.5 version of this codebase that you can [fork](https://github.com/gothinkster/angularjs-realworld-example-app) and/or [learn how to recreate](https://thinkster.io/angularjs-es6-tutorial).
 
-# How it works
+## How it works
 
 We're currently working on some docs for the codebase (explaining where functionality is located, how it works, etc) but the codebase should be straightforward to follow as is. We've also released a [step-by-step tutorial w/ screencasts](https://thinkster.io/tutorials/building-real-world-angular-2-apps) that teaches you how to recreate the codebase from scratch.
 
@@ -25,7 +37,7 @@ The source code for the backend server (available for Node, Rails and Django) ca
 
 If you want to change the API URL to a local server, simply edit `src/environments/environment.ts` and change `api_url` to the local server's URL (i.e. `localhost:3000/api`). Please note you will probably need to use a proxy in order to avoid Cross-Origin Resource (CORS) issues. (more info: [Proxying to a backend server](https://angular.io/guide/build#proxying-to-a-backend-server) )
 
-# Getting started
+## Getting started
 
 Make sure you have the [Angular CLI](https://github.com/angular/angular-cli#installation) installed globally. We use [Yarn](https://yarnpkg.com) to manage the dependencies, so we strongly recommend you to use it. you can install it from [Here](https://yarnpkg.com/en/docs/install), then run `yarn install` to resolve all dependencies (might take a minute).
 
@@ -35,7 +47,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Functionality overview
+### Functionality overview
 
 The example application is a social blogging site (i.e. a Medium.com clone) called "Conduit". It uses a custom API for all requests, including authentication. You can view a live demo over at https://angular.realworld.io
 
@@ -72,3 +84,39 @@ The example application is a social blogging site (i.e. a Medium.com clone) call
 <br />
 
 [![Brought to you by Thinkster](https://raw.githubusercontent.com/gothinkster/realworld/master/media/end.png)](https://thinkster.io)
+
+---
+
+## Quick Start Docker
+
+1. Build Image:
+
+```bash
+build -t conduit-frontend .
+```
+
+2. Run Container:
+
+```bash
+docker run --rm -it -p 8082:80 conduit-frontend
+```
+
+---
+
+## Quick Start Docker Compose
+
+You can also start the Website with [Docker Compose](./docker-compose.yml) by running:
+
+```bash
+docker compose up -d --build
+```
+
+---
+
+## Usage
+
+> Replace `localhost` with your host IP if needed.
+
+- Frontend: http://localhost:8082
+
+![conduit_page.png](conduit_page.png)
