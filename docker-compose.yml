@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        API_HOST: ${API_HOST}
     ports:
       - "8082:80"
     restart: on-failure:3

@@ -92,13 +92,13 @@ The example application is a social blogging site (i.e. a Medium.com clone) call
 1. Build Image:
 
 ```bash
-build -t conduit-frontend .
+docker build -t conduit-frontend --build-arg API_HOST=https://api.example.com .
 ```
 
 2. Run Container:
 
 ```bash
-docker run --rm -it -p 8082:80 conduit-frontend
+docker run --rm -p 8082:80 --name conduit-frontend-app conduit-frontend:latest
 ```
 
 ---
@@ -107,15 +107,25 @@ docker run --rm -it -p 8082:80 conduit-frontend
 
 You can also start the Website with [Docker Compose](./docker-compose.yml) by running:
 
+Bash:
+
 ```bash
-docker compose up -d --build
+API_HOST=https://api.example.com docker compose up -d --build
 ```
+
+Powershell:
+
+```pwsh
+$env:API_HOST="https://api.example.com"; docker compose up -d --build
+```
+
+to change the defaul value, set ENV **API_HOST** to your api host.
 
 ---
 
 ## Usage
 
-> Replace `localhost` with your host IP if needed.
+> Replace `localhost` with your `host-ip` if needed.
 
 - Frontend: http://localhost:8082
 
